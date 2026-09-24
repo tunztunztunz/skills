@@ -1,0 +1,40 @@
+[
+  {
+    "id": "procedure-install",
+    "text_type": "procedural",
+    "max_words_per_sentence": 20,
+    "required_patterns": ["Node", "\\b20\\b", "2 GB", "/var/lib", "endpoint", "--force", "lockfile"]
+  },
+  {
+    "id": "descriptive-api",
+    "text_type": "descriptive",
+    "max_words_per_sentence": 25,
+    "required_patterns": ["Client\\.send", "SendError", "HttpTransport", "GrpcTransport", "\\b3\\b", "2 seconds"]
+  },
+  {
+    "id": "over-correction-guard",
+    "text_type": "descriptive",
+    "max_words_per_sentence": 25,
+    "required_patterns": [
+      "before the request",
+      "because the token expired",
+      "holds the token",
+      "If the install fails, delete the lockfile",
+      "401",
+      "55 minutes",
+      "50 minutes"
+    ]
+  },
+  {
+    "id": "em-dash-sweep",
+    "text_type": "descriptive",
+    "max_words_per_sentence": 25,
+    "required_patterns": ["5xx", "408", "504", "4xx", "2\\s*(-|–|to)\\s*8 seconds"]
+  },
+  {
+    "id": "shape-first",
+    "text_type": "descriptive",
+    "max_words_per_sentence": 25,
+    "required_patterns": ["trace", "debug", "info", "error", "40 MB", "5 MB", "200 KB", "10 KB"]
+  }
+]
