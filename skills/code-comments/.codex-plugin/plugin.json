@@ -1,0 +1,10 @@
+{
+  "name": "code-comments",
+  "version": "0.1.0",
+  "description": "Comment rules that hold without being invoked: the load-bearing test, injected at session and subagent start.",
+  "author": {
+    "name": "Classward"
+  },
+  "skills": "./",
+  "hooks": "./hooks/hooks.json"
+}

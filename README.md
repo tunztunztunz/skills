@@ -4,10 +4,11 @@ Claude Code skills, vendored from [Classward/agent-skills](https://github.com/Cl
 
 | Skill | Vendored from | What it does |
 |---|---|---|
+| [`code-comments`](skills/code-comments) | `code-comments-constraint-test`, a local branch | Holds a comment to one job: state a constraint the code cannot carry. Hooks inject the rules at session start, so they apply without being invoked. Carries its own eval harness. |
 | [`dry-prose`](skills/dry-prose) | `add-dry-prose-skill` | Writes short, plain prose for READMEs, docs, runbooks, and PR descriptions. Writes new text, or sweeps a draft you already have. Carries its own eval harness. |
 | [`wtf`](skills/wtf) | `main` | Answers at whiteboard altitude: a drawing, then a short caption. Ships 3 commands, `/wtf`, `/wtf-html`, and `/wtf-brand`. |
 
-`add-dry-prose-skill` has not merged, so `dry-prose` can change before it lands on `main`.
+Neither branch has merged. `add-dry-prose-skill` is on the upstream remote, so `dry-prose` can change before it lands on `main`. `code-comments-constraint-test` is not on the remote, so the copy here is the only published one.
 
 Every skill sets `disable-model-invocation: true`, so Claude never reaches for one on its own. Type the command to run it.
 
@@ -19,6 +20,8 @@ Clone first:
 git clone git@github.com:tunztunztunz/skills.git
 cd skills
 ```
+
+`code-comments` needs the plugin route, not a symlink. Its hooks resolve `${CLAUDE_PLUGIN_ROOT}`, which only a plugin install sets, so a symlinked copy gives you the skill without the session-start injection. [`skills/code-comments/README.md`](skills/code-comments/README.md) covers it.
 
 `dry-prose` installs as a single symlink:
 
@@ -46,3 +49,5 @@ Refresh it from a clone of the upstream repo, using the ref in the table:
 git rm -r skills/dry-prose
 git -C <path-to-agent-skills> archive origin/add-dry-prose-skill skills/dry-prose | tar -x -C .
 ```
+
+Drop the `origin/` prefix for a local branch, so `code-comments` refreshes from `code-comments-constraint-test`.

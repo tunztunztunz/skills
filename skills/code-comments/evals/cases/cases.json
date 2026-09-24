@@ -1,0 +1,47 @@
+[
+  {
+    "id": "omit-decoration",
+    "check_banned_comment_text": true,
+    "comment_line_limit": 0,
+    "required_patterns": ["const total = subtotal \\+ tax;"],
+    "forbidden_patterns": ["increment", "adds the tax"]
+  },
+  {
+    "id": "external-contract",
+    "check_banned_comment_text": true,
+    "comment_line_limit": 1,
+    "required_patterns": ["github", "404", "private repositor"],
+    "forbidden_patterns": ["because we"]
+  },
+  {
+    "id": "name-over-comment",
+    "check_banned_comment_text": true,
+    "comment_line_limit": 0,
+    "required_patterns": ["retryAfterMilliseconds"],
+    "forbidden_patterns": ["retryAfterSeconds is in seconds"]
+  },
+  {
+    "id": "interface-altitude",
+    "check_banned_comment_text": true,
+    "comment_line_limit": 2,
+    "required_patterns": ["every repository visible to the installation"],
+    "forbidden_patterns": ["for loop", "while loop", "page by page"]
+  },
+  {
+    "id": "audit-sweep",
+    "required_patterns": ["3 comments", "delete", "rename", "keep", "expiresAt", "token"],
+    "forbidden_patterns": []
+  },
+  {
+    "id": "generated-source",
+    "required_patterns": ["widget.proto", "regenerate"],
+    "forbidden_patterns": ["add a comment to widget\\.pb\\.go"]
+  },
+  {
+    "id": "history-to-contract",
+    "check_banned_comment_text": true,
+    "comment_line_limit": 1,
+    "required_patterns": ["cache entr", "payload", "checksum"],
+    "forbidden_patterns": ["#552", "changed after"]
+  }
+]

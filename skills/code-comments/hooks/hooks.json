@@ -1,0 +1,40 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/code-comments-context.sh\" session",
+            "timeout": 5,
+            "statusMessage": "Loading comment rules..."
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/code-comments-context.sh\" subagent",
+            "timeout": 5,
+            "statusMessage": "Loading comment rules..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/code-comments-context.sh\" prompt",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
