@@ -1,0 +1,12 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "dry-prose",
+  "version": "0.1.0",
+  "description": "Short, flat, plain-English prose for anything read while working. Writes new text, or sweeps an existing draft.",
+  "author": {
+    "name": "Classward"
+  },
+  "skills": [
+    "./"
+  ]
+}
