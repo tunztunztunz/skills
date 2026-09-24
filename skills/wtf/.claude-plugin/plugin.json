@@ -1,0 +1,9 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "wtf",
+  "version": "0.1.0",
+  "description": "Answers at whiteboard altitude — the short plain-English version, drawn rather than described. Ships /wtf, /wtf-html and /wtf-brand.",
+  "author": {
+    "name": "Classward"
+  }
+}

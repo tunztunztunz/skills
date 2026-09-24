@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- FILL: page title -->
+<title>TITLE</title>
+<!--WORK-FAVICON--><link rel="icon" class="fav-work" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAC7ElEQVRIDe1VTUwTQRidmf2hpYtFkGJSRESNHoyJxki8qI2JJ40S9MDBoMST8ajGeKkejYk3vRkT48lEjXrwgBoOGEQOantBrCKoEShIgf53Z8ZvurRdylLGAwejm810ft/73ve+2WJGKVrNh6wmuMD+1wgwRvD+0SObIgFNSDrDkmkGHXkaWQLK0I27I7tPvtnV0X/1ViSb40hOCpYpUwj5/rMfpy6EkEoEbppev7L9UncrZ2zFdMkqeNobBWhVw6qKkU6evJpEnMtokCWo92qI8oV4KW+o04GvMK4kQ5KAn+9sbtpQbSZMeOvq9YunWyqh2taW9QATSMCiHETGEg+ej+dM1nF4/Y6tNUgIKG7gnDnrcSYA9K/fk49fTibSDHwNtNW37fTmw7IQBVZoeL6nbyqVYy6NHA34tm3yOHI4EGCMZ+ZyB88Mhj7MIrCUcaNWf3FnD3BYEEA/9CWxv2swOp5CIJTyja2evnt7mxpdnJfrcPIA4+HRZPhTXDFU1a2oHjUey/YO/rIlBA+EY9GJNCyJDYY6OpZ8PzTneMudCBAyKQcdJasIXhLZ4u8kxrRYY6VjoqcuHi6MvIZCCDJNDq31TM1koZN3Xkz8jGbBY+ErJAVajOpqdWtnWasEg8GyKTizbq0OIj6OxDVN0TWSybLIt2SL3+WuUsCe1+9i125/no2bNYZa7VY8LuXsiabudn8xGjugg8mwLNKDcXQ6k84yyvDDnvHLN4dNhtYYQvF8wgS3g+c2dx3zayrWFNzYULUgxY6d7zsTWNuKCYFhW+fA21CMQM0ixCiHogw/2gf68rcBORaoBeLsgbVWPAZMRrUCSReXDwg4h6How47ysrSOltqCiaUZ514errAETPBVtdgKc8v9ShLg9kM+yLKZpGaKIpMfD/gIISuGD6yVPCgLqqd/Gm4fgG5pdh854FPkYpMlEMm3l6FE9q34KplsVyC8lPj/sh+x+nI6l56TnvlPsGKq/v4U/QZmkCY71bLbAwAAAABJRU5ErkJggg=="><!--/WORK-FAVICON-->
+<link rel="icon" class="fav-wtf" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/styles/github-dark.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/highlight.min.js"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose", flowchart: { curve: "basis" } });
+</script>
+<style type="text/tailwindcss">
+  /* ══ theme ══════════════════════════════════════════════════════════════
+     The default speaks the logo's own language: heavy black outline, flat lime,
+     magenta, halftone dots, hard offset shadow. --bw, --shadow and --dot carry that
+     boldness, so the work theme flips the whole page by resetting them alongside
+     the palette. Nothing below this block names a colour of its own. */
+  :root {
+    --brand:#c6f000; --on-ink:var(--brand);
+
+    --paper:#f4f2ea;  --surface:#ffffff;
+    --ink:#141414;    --body:#2f2f2d;      --muted:#6f6f6b;
+    --rule:#141414;   --rule-soft:#ddd9cd;
+
+    /* the legend — three meanings held for the whole page, never colour for decoration */
+    --today:#8a8a88;  --today-wash:#f0f0ec;
+    --build:#6d9400;  --build-wash:#eafbc0;
+    --retire:#b01e90; --retire-wash:#fbe6f4;
+
+    --bw:2px;
+    /* two layers: the un-shifted copy carries the right edge to the very top, which a
+       single 4px 4px offset leaves bare */
+    --shadow:4px 0 0 var(--ink), 4px 4px 0 var(--ink);
+    --dot:rgba(20,20,20,.08);
+  }
+
+  /* work theme — slate, no logo, for sharing outside the team. Set data-theme="work"
+     on <html>, or use the export button, which writes a copy already switched. */
+  [data-theme="work"] {
+    --on-ink:#ffffff;
+
+    --paper:#f7f5f1;  --surface:#fffdfa;
+    --ink:#1b1d21;    --body:#3f444c;      --muted:#7b8290;
+    --rule:#e0d9cd;   --rule-soft:#efe9df;
+
+    --today:#8b93a1;  --today-wash:#f0ede7;
+    --build:#0c24b4;  --build-wash:#ecedf9;
+    --retire:#c0453b; --retire-wash:#fbeceb;
+
+    --bw:1px;
+    --shadow:0 1px 2px rgba(27,29,33,.05), 0 10px 28px -18px rgba(27,29,33,.34);
+    --dot:rgba(27,29,33,.04);
+  }
+  [data-theme="work"] .brand, [data-theme="work"] #exportbtn { display: none; }
+  /* .tab sets display:flex further down, so the work logo needs the extra class to win */
+  .tab.brand-work { display: none; }
+  [data-theme="work"] .tab.brand-work { display: flex; }
+
+  /* ══ page ═══════════════════════════════════════════════════════════════ */
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--paper); color: var(--body);
+    background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  h1, h2, h3 { color: var(--ink); font-weight: 800; }
+  .sec  { @apply space-y-5 scroll-mt-20; }
+  .cap  { @apply max-w-3xl; }
+  .g3   { @apply grid md:grid-cols-3 gap-4; }
+  .col2 { @apply grid md:grid-cols-2 gap-4; }
+
+  /* ══ surfaces ═══════════════════════════════════════════════════════════ */
+  .card  { @apply rounded-xl p-5; background: var(--surface); border: var(--bw) solid var(--rule); box-shadow: var(--shadow); }
+  .panel { @apply rounded-xl p-4 text-sm min-h-[4.5rem]; background: var(--today-wash); border: var(--bw) solid var(--rule); }
+  /* amber sits outside the three-colour legend on purpose: a callout is not an axis.
+     Only the fill is fixed — border and shadow still come from the live theme. */
+  .note  { @apply rounded-xl p-4 text-sm; border: var(--bw) solid var(--rule); box-shadow: var(--shadow);
+           background:#fdf6e9; color:#5a3f12; }
+  .note b, .panel b { color: var(--ink); }
+  .lbl   { @apply block font-mono text-[11px] tracking-[.12em] uppercase font-bold mb-2; color: var(--muted); }
+  .mono  { @apply font-mono text-xs; }
+  .hint  { @apply text-xs; color: var(--muted); }
+
+  /* ══ legend colours ═════════════════════════════════════════════════════
+     One axis per class. A card's border is a tint of its own axis colour, so it
+     tracks whichever theme is live instead of carrying one theme's palette into
+     the other. */
+  .swatch.today,  .track.today  > i { background: var(--today); }
+  .swatch.build,  .track.build  > i { background: var(--build); }
+  .swatch.retire, .track.retire > i { background: var(--retire); }
+  .card.today  { background: var(--today-wash);  border-color: color-mix(in srgb, var(--today) 35%, #fff); }
+  .card.build  { background: var(--build-wash);  border-color: color-mix(in srgb, var(--build) 35%, #fff); }
+  .card.retire { background: var(--retire-wash); border-color: color-mix(in srgb, var(--retire) 35%, #fff); }
+  .legend { @apply flex flex-wrap gap-2 items-center; }
+  .chip   { @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium; background: var(--surface); border: var(--bw) solid var(--rule); }
+  .chip i { @apply block w-2.5 h-2.5 rounded-sm; }
+
+  /* ══ bars ═══════════════════════════════════════════════════════════════ */
+  .bars      { @apply grid gap-3 text-sm; }
+  .bar       { @apply grid grid-cols-[9rem_1fr_3.5rem] items-center gap-3; }
+  .bar b     { @apply font-mono font-semibold text-right; color: var(--ink); }
+  .track     { @apply block h-3 rounded-full overflow-hidden; background: var(--rule-soft); border: var(--bw) solid var(--rule); }
+  .track > i { @apply block h-full rounded-full; background: var(--today); }
+  @media (max-width: 760px) {
+    .bar { @apply grid-cols-[minmax(5rem,1fr)_2fr_3rem] gap-2; }
+  }
+
+  /* ══ table ══════════════════════════════════════════════════════════════
+     The class carries every border, pad and header style, so the markup stays
+     plain <th> and <td> with the content and nothing else. */
+  .tbl    { @apply w-full text-sm rounded-xl overflow-hidden; background: var(--surface); border: var(--bw) solid var(--rule); }
+  .tbl th { @apply p-3 text-left font-mono text-[11px] tracking-[.12em] uppercase font-bold;
+            color: var(--muted); background: var(--today-wash); }
+  .tbl td { @apply p-3; border-top: 1px solid var(--rule-soft); }
+  /* .lbl is display:block, which drops a header cell out of the table's own layout */
+  th.lbl, td.lbl { display: table-cell; }
+
+  /* ══ code ═══════════════════════════════════════════════════════════════ */
+  /* the block is dark in both themes, matching the highlight.js stylesheet, and is
+     styled here so it still reads if that CDN never loads */
+  pre > code { @apply block rounded-xl p-4 text-xs leading-relaxed overflow-x-auto; background:#1f2228; color:#e7e3db; }
+  /* mono carries a shorter x-height than the sans body, so a bare <code> in prose reads
+     lighter than the sentence it interrupts — the chip is what makes it read heavier.
+     .node is excluded because a graph box already styles its own code line. */
+  :not(pre):not(.node) > code {
+    @apply font-mono text-[.9em] font-semibold rounded px-1.5 py-0.5;
+    background: var(--rule-soft); color: var(--ink);
+  }
+
+  /* ══ nav ════════════════════════════════════════════════════════════════
+     Clusters hang off the top edge: square where they meet it, round where they
+     jut out. margin-top pulls each tab above the viewport edge, so the hover drop
+     reveals more tab instead of a gap above it. */
+  .tab { display: flex; align-items: flex-end; padding-bottom: .75rem; min-height: 5rem; margin-top: -1.5rem;
+         background: var(--surface); border: var(--bw) solid var(--rule); border-top: 0;
+         border-radius: 0 0 .9rem .9rem; box-shadow: var(--shadow); }
+  a.tab    { color: var(--ink); text-decoration: none; }
+  .tab.cta { background: var(--brand); }
+  [data-theme="work"] .tab.cta { background: var(--build-wash); }
+  @media (prefers-reduced-motion: no-preference) {
+    .tab { transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
+    .tab:hover, .tab:focus-within { transform: translateY(.5rem); z-index: 1; }
+  }
+  /* the row scrolls, not the tabs — overflow on a tab clips its own radius and shadow.
+     pb leaves room for the hover drop and the offset shadow to render inside the scroll box */
+  .navrow { @apply max-w-6xl mx-auto px-6 pb-3 flex items-start gap-2 overflow-x-auto;
+            scrollbar-width: none; }
+  .navrow::-webkit-scrollbar { display: none; }
+
+  /* ══ graph ══════════════════════════════════════════════════════════════
+     Every rule stays under .graph — mermaid names its own flowchart boxes
+     class="node", and they must not pick any of this up. */
+  .scroller { @apply overflow-x-auto pb-3; }
+  .graph { @apply relative grid gap-y-6 gap-x-14 p-2; }
+  .graph > svg { @apply absolute inset-0 w-full h-full overflow-visible pointer-events-none; }
+  .graph > svg path { @apply transition-opacity duration-200; }
+  .graph .node { @apply relative z-10 self-center rounded-xl px-4 py-3 transition-all duration-200;
+                 background: var(--surface); border: var(--bw) solid var(--rule); box-shadow: var(--shadow); }
+  .graph .node > b    { @apply block text-sm font-semibold leading-snug; color: var(--ink); }
+  .graph .node > code { @apply block font-mono text-xs mt-0.5 leading-snug; color: var(--muted); }
+  .graph .node:focus-visible { @apply outline-none ring-2 ring-offset-2; --tw-ring-color: var(--ink); }
+  .graph .node[data-step]::before {
+    content: attr(data-step);
+    @apply absolute -top-2.5 -left-2.5 w-6 h-6 rounded-full font-mono text-xs font-semibold text-center leading-6;
+    background: var(--ink); color: #fff;
+  }
+  .graph .node.accent { background: var(--ink); border-color: var(--ink); }
+  .graph .node.accent > b    { @apply font-mono; color: var(--on-ink); }
+  .graph .node.accent > code { color: #a8adb6; }
+  .graph .node.accent[data-step]::before { background: var(--on-ink); color: var(--ink); }
+  /* inspect() puts .dim on the graph and .hot on what the pointer picked out */
+  .graph.dim .node     { @apply opacity-20; }
+  .graph.dim .node.hot { @apply opacity-100 -translate-y-px; border-color: var(--ink); }
+  .graph.dim path      { @apply opacity-10; }
+  .graph.dim path.hot  { @apply opacity-100; }
+
+  /* ══ reveal ═════════════════════════════════════════════════════════════ */
+  /* .js is set by the engine, so a CDN failure leaves the page readable instead of blank */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .sec { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+    .js .sec.in { opacity: 1; transform: none; }
+  }
+</style>
+<!-- Diagram calls sit next to their markup, so they run before the engine exists and before
+     Tailwind has sized anything. Queue them here; the engine's own declarations replace these
+     three shims when it parses, and it replays the queue once layout has settled. -->
+<script>
+  const QUEUE = []
+  for (const f of ['edges', 'play', 'inspect']) window[f] = (...a) => QUEUE.push([f, a])
+</script>
+</head>
+<body class="font-sans antialiased">
+
+<!-- FILL: one anchor per section. Keep the logo and the export clusters; drop only the
+     middle cluster when the page has four sections or fewer. -->
+<nav class="sticky top-0 z-20">
+  <div class="navrow">
+    <span class="brand tab shrink-0 px-3"><img src="data:image/webp;base64,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" alt="wtf" class="h-10 w-auto"></span>
+    <!--WORK-LOGO--><span class="brand-work tab shrink-0 px-3"><img src="data:image/webp;base64,UklGRtwDAABXRUJQVlA4INADAABwGACdASpgAGAAPjEYiUMiIaEVW1QsIAMEoAlQP5X+M2vlcz/EDla9wu7uUH+Dfo/OO+3L3AP0v/of5AdoDzAfxX+if8L/KdgD0AP6r/pOsk9AD9t/TP/bv4PP2t/Yn4B/2izS/+O9nf97rpP7pmT94IxzxAaV+Y9/1vLL8+/8n3Bf1N/3nYO9DMriRVWdaFwtgKdvidUV/UiAAd2C/x1Kf9R5ci5/CbePq25CPVu7EAfs82dEOjYmewTksNbYZbp5rq5vLcvrbQYfr4AA/v7aoCnaVkGb8NX82D5S2OOwgoRxZxbvfR65xq+PDqVBVH3hUNSP7UhBrYTt7YOuPlACia/kFX0oXzrhvn1yT/j6Xusrkf3/RiJrn4LUEMRHMGMyXm2AcEZZ9f8RXg3E/JP5jxWKtPgnPaIKVBTcmt1tzztmGvp0vQcmoc/Eovd37b592TVpXsaYdZ3gdxEVzb5N/vP+es03wxZi5hLtnDCwA6x51/88xn17N4NINwk+/9zVddTc+TvcZDi+WAXU1bpqmQOVLc7M3qUlrQTauTbLJ9HrpJZ+MYT0fbLfPoe2kx2jF/9PP9lHAPCybObBapJ3F2ejuXDcOx6o4eDAQ33lH6bNg2T7mWMAgD/0m0CUeVPzqV2BSA9DCYdoMSvkf50GD5fA+IkrF+uq5/8aqNKLr6Qfx2LZZxwsVIbIYQv/G2ZGqFW5IkiBNXvQ4yKY/JYhsWi+xjnlT5yJ61JtaBvrLkP9LQ5sA2NcDVM7qq/33GNQu5C8CmAvNIJZdoP80gX5lB7gSjTWz3vlun/NeG0O5tSpxsVj39nG30tvSAQZ+1aUT8anMXPpEXyWjNOgisUmRG+5Sf64x59qp+KwGxxJfrzxcJlQVtTWnCjMg0jYbPaHhXjhBv89Jnj7ML/R7VN1h5+muJz7n1yX4lCZZ0/UUZH85ElTIe4JZuxenV+1KI09ickpruJqmT6f96fiVDAhlNeb4GrNMUxK2DjR3pCH5pNIwcJpIBz0sAORWwGASdTbIEIrljwg9mhPMRR9LYyYrpd3yqBgzjDOBmEFsWQ7ZP1zeGccKduv6IESDwBUl1ZNlnjWWS3tvvvo47h8z7n6g3sCvjAsFogfktCJKysm12t6M87metBvj5NM/sQ+A1vB5w5IyTJj4ovp58nmJXZNdBNnIB/CswcCoR614HVRAOBIe7j4YWM36lO/j1BQsP1MgQHAfUVqNVJyHwqYT/joVLzR4OWpS40FXqmdx3hCK3XflX/GfWAtknO33SvAiksMj+3iPPBLDnhkkD4CAAAA" alt="" class="h-10 w-auto"></span><!--/WORK-LOGO-->
+    <a href="#one" class="tab px-4 text-sm font-medium whitespace-nowrap">Section</a>
+    <button id="exportbtn" onclick="exportForWork()"
+            class="tab cta ml-auto shrink-0 px-4 text-xs font-semibold whitespace-nowrap"
+            style="color:var(--ink)">Export for sharing</button>
+  </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 py-14 space-y-16">
+
+  <header class="space-y-5">
+    <!-- FILL: headline states the conclusion, not the topic -->
+    <h1 class="font-serif text-4xl tracking-tight">HEADLINE</h1>
+    <p class="cap text-lg leading-relaxed">One paragraph: what this answers and what the reader walks away knowing.</p>
+    <!-- FILL: the colour legend, stated once. Delete any of the three the page never uses. -->
+    <div class="legend">
+      <span class="chip"><i class="swatch today"></i>What exists today</span>
+      <span class="chip"><i class="swatch build"></i>What has to be built</span>
+      <span class="chip"><i class="swatch retire"></i>What gets retired</span>
+    </div>
+    <div class="g3">
+      <div class="card"><div class="lbl">Label</div><p class="text-sm">Claim.</p></div>
+      <div class="card"><div class="lbl">Label</div><p class="text-sm">Claim.</p></div>
+      <div class="card"><div class="lbl">Label</div><p class="text-sm">Claim.</p></div>
+    </div>
+  </header>
+
+  <!-- ══ PATTERNS — copy what the section needs, delete the rest ══ -->
+
+  <!-- HERO DIAGRAM. data-col/data-row place the node; data-detail feeds the panel on hover. -->
+  <section id="one" class="sec">
+    <h2 class="font-serif text-3xl">Section heading</h2>
+    <p class="cap">One or two sentences of setup, then the diagram carries it.</p>
+    <div class="card">
+      <div class="scroller">
+        <div class="graph" id="g1" style="min-width:40rem">
+          <div class="node" id="n1" data-col="1" data-row="1" data-step="1" data-detail="What this one is, in a sentence.">
+            <b>First trigger</b><code>SomeClass::method — line 117</code>
+          </div>
+          <div class="node" id="n2" data-col="1" data-row="2" data-detail="What this one is, in a sentence.">
+            <b>Second trigger</b><code>OtherClass::method — line 98</code>
+          </div>
+          <div class="node accent" id="hub" data-col="2" data-row="1" data-span="2" data-step="2"
+               data-detail="The chokepoint. Everything upstream arrives here.">
+            <b>Hub::handle</b><code>the one guard that stops a duplicate</code>
+          </div>
+          <div class="node" id="out" data-col="3" data-row="1" data-span="2" data-step="3" data-detail="The result.">
+            <b>Outcome</b><code>what gets written</code>
+          </div>
+        </div>
+      </div>
+      <div class="panel mt-4" id="d1">Hover or tab through a box to see what it does.</div>
+      <p class="hint mt-2">Hover a box, or tab to it. Click to pin.</p>
+    </div>
+    <p class="cap">Two or three sentences under the diagram. Never a wall above it.</p>
+  </section>
+  <script>
+    edges('n1→hub:trigger', 'n2→hub:trigger', 'hub→out:danger')
+    play('n1→hub→out')
+    inspect('#g1', { panel: '#d1' })
+  </script>
+
+  <!-- Proportion. Set the width inline; grow() animates it from zero on reveal. -->
+  <section class="sec">
+    <div class="card bars">
+      <div class="bar"><span>label</span><span class="track build"><i style="width:80%"></i></span><b class="count" data-to="80">0</b></div>
+      <div class="bar"><span>label</span><span class="track today"><i style="width:15%"></i></span><b class="count" data-to="15">0</b></div>
+    </div>
+  </section>
+
+  <!-- Before / after — same row labels both sides -->
+  <section class="sec">
+    <div class="col2">
+      <div class="card today"><div class="lbl">Today</div><ul class="text-sm space-y-1"><li>point</li></ul></div>
+      <div class="card build"><div class="lbl">After</div><ul class="text-sm space-y-1"><li>point</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Grid — several things on several axes. Cells do the work. -->
+  <section class="sec">
+    <table class="tbl">
+      <thead><tr><th>Thing</th><th>Axis</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">name</td><td>✓ exists</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Supporting diagram. Mermaid sizes itself — it needs no CSS from this file. -->
+  <section class="sec">
+    <div class="card">
+      <pre class="mermaid">
+flowchart LR
+  A["Thing that exists"] --> B{"Decision"}
+  B -->|"yes"| C["What gets built"]
+  B -->|"no"| D["What gets dropped"]
+      </pre>
+    </div>
+  </section>
+
+  <!-- Code — set language-XXX (php, go, ts, sql, bash, json). Drop the class and highlight.js
+       auto-detects; name it when the snippet is short enough to guess wrong. -->
+  <section class="sec">
+    <pre><code class="language-XXX">code</code></pre>
+  </section>
+
+  <!-- Unknown or judgement call — say so here rather than writing confident filler -->
+  <div class="note"><b>Open question:</b> what still needs deciding.</div>
+
+</main>
+
+<script>
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches
+const LAYOUTS = []
+// strokes resolve from the theme variables, so an exported copy redraws in slate
+const cssvar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#8a8a88'
+const EDGE = {
+  plain:   { color: '--today',  width: 2,   dash: '' },
+  trigger: { color: '--today',  width: 2,   dash: '6 5' },
+  danger:  { color: '--retire', width: 2.5, dash: '' },
+  note:    { color: '--build',  width: 2,   dash: '5 4' },
+}
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return
+  io.unobserve(e.target)
+  e.target._onReveal ? e.target._onReveal() : e.target.classList.add('in')
+}), { rootMargin: '-40px' })
+
+function onReveal(el, fn) {
+  el = typeof el === 'string' ? document.querySelector(el) : el
+  if (!el) return
+  if (REDUCE) return fn()
+  const prev = el._onReveal
+  el._onReveal = prev ? () => { prev(); fn() } : fn
+  io.observe(el)
+}
+
+const pick = v => typeof v === 'string' ? [...document.querySelectorAll(v)] : [...(v.length ? v : [v])]
+
+function fade(el, { delay = 0 } = {}) {
+  if (REDUCE) return
+  el.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+    { duration: 450, delay, easing: 'ease-out', fill: 'backwards' })
+}
+
+function grow(el, { delay = 0 } = {}) {
+  if (REDUCE) return
+  const w = getComputedStyle(el).width
+  el.animate([{ width: 0 }, { width: w }], { duration: 700, delay, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'backwards' })
+}
+
+// Dashed strokes cannot be drawn by dashoffset — the pattern fights the reveal — so the
+// dash is applied only once the line has finished drawing itself.
+function draw(path, { delay = 0, dur = 700 } = {}) {
+  const dash = path.dataset.dash || ''
+  if (REDUCE) { if (dash) path.setAttribute('stroke-dasharray', dash); return Promise.resolve() }
+  const len = path.getTotalLength()
+  path.setAttribute('stroke-dasharray', len)
+  path.setAttribute('stroke-dashoffset', len)
+  const a = path.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+    { duration: dur, delay, easing: 'ease-in-out', fill: 'forwards' })
+  return a.finished.then(() => {
+    path.setAttribute('stroke-dasharray', dash)
+    path.removeAttribute('stroke-dashoffset')
+  })
+}
+
+// getPointAtLength beats offset-path here: it works in every browser that renders SVG at all,
+// and it makes chaining several paths into one continuous run trivial.
+function walk(paths, { dur = 1400, loop = true, r = 5, fill = cssvar('--ink') } = {}) {
+  if (REDUCE) return
+  paths = [].concat(paths)
+  const svg = paths[0].ownerSVGElement
+  const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+  dot.setAttribute('r', r); dot.setAttribute('fill', fill)
+  svg.appendChild(dot)
+  const lens = paths.map(p => p.getTotalLength())
+  const total = lens.reduce((a, b) => a + b, 0)
+  let t0 = null
+  const step = now => {
+    if (t0 === null) t0 = now
+    let d = ((now - t0) / dur) * total
+    if (d > total) { if (!loop) { dot.remove(); return } t0 = now; d = 0 }
+    let i = 0
+    while (i < lens.length - 1 && d > lens[i]) { d -= lens[i]; i++ }
+    const pt = paths[i].getPointAtLength(Math.min(d, lens[i]))
+    dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y)
+    dot.setAttribute('opacity', d < 12 || d > lens[i] - 12 ? 0.35 : 1)
+    requestAnimationFrame(step)
+  }
+  requestAnimationFrame(step)
+}
+
+function count(el, to, { dur = 900 } = {}) {
+  const end = to ?? +el.dataset.to
+  if (REDUCE) return el.textContent = end
+  let t0 = null
+  const step = now => {
+    if (t0 === null) t0 = now
+    const k = Math.min(1, (now - t0) / dur)
+    el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)))
+    if (k < 1) requestAnimationFrame(step)
+  }
+  requestAnimationFrame(step)
+}
+
+function stagger(els, verb, { gap = 90 } = {}) {
+  pick(els).forEach((el, i) => verb(el, { delay: i * gap }))
+}
+
+function svgFor(graph) {
+  let svg = graph.querySelector(':scope > svg')
+  if (svg) return svg
+  svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  svg.innerHTML = Object.entries(EDGE).map(([k, s]) =>
+    `<marker id="ah-${k}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+       orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${cssvar(s.color)}"/></marker>`).join('')
+  graph.prepend(svg)
+  return svg
+}
+
+function geometry(a, b, box) {
+  const r = el => { const k = el.getBoundingClientRect(); return {
+    l: k.left - box.left, r: k.right - box.left, t: k.top - box.top, b: k.bottom - box.top,
+    cx: k.left + k.width / 2 - box.left, cy: k.top + k.height / 2 - box.top } }
+  const A = r(a), B = r(b)
+  if (B.l > A.r - 4) {
+    const d = Math.max(28, (B.l - A.r) * 0.55)
+    return `M${A.r},${A.cy} C${A.r + d},${A.cy} ${B.l - d},${B.cy} ${B.l},${B.cy}`
+  }
+  if (B.r < A.l + 4) {
+    const d = Math.max(28, (A.l - B.r) * 0.55)
+    return `M${A.l},${A.cy} C${A.l - d},${A.cy} ${B.r + d},${B.cy} ${B.r},${B.cy}`
+  }
+  const [y1, y2] = B.t > A.b ? [A.b, B.t] : [A.t, B.b]
+  const d = Math.max(24, Math.abs(y2 - y1) * 0.5)
+  return `M${A.cx},${y1} C${A.cx},${y1 + (y2 > y1 ? d : -d)} ${B.cx},${y2 - (y2 > y1 ? d : -d)} ${B.cx},${y2}`
+}
+
+function edges(...specs) {
+  const parsed = specs.map(s => {
+    const [pair, kind = 'plain'] = s.split(':')
+    const [from, to] = pair.split(/\s*(?:→|->)\s*/).map(x => x.trim())
+    return { from, to, kind }
+  })
+  const first = document.getElementById(parsed[0].from)
+  const graph = first.closest('.graph')
+  const svg = svgFor(graph)
+  const list = graph._edges = []
+
+  for (const e of parsed) {
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    const s = EDGE[e.kind] || EDGE.plain
+    p.setAttribute('fill', 'none')
+    p.setAttribute('stroke', cssvar(s.color))
+    p.setAttribute('stroke-width', s.width)
+    p.setAttribute('stroke-linecap', 'round')
+    p.setAttribute('marker-end', `url(#ah-${e.kind in EDGE ? e.kind : 'plain'})`)
+    p.dataset.dash = s.dash
+    svg.appendChild(p)
+    list.push({ ...e, path: p })
+  }
+
+  const layout = () => {
+    const box = graph.getBoundingClientRect()
+    for (const e of list) {
+      e.path.setAttribute('d', geometry(document.getElementById(e.from), document.getElementById(e.to), box))
+    }
+  }
+  layout()
+  LAYOUTS.push(layout)
+  new ResizeObserver(layout).observe(graph)
+  onReveal(graph, () => { graph.classList.add('in'); stagger(list.map(e => e.path), draw, { gap: 140 }) })
+  return list
+}
+
+function play(route, opts) {
+  const ids = route.split(/\s*(?:→|->)\s*/).map(x => x.trim())
+  const graph = document.getElementById(ids[0]).closest('.graph')
+  const hops = ids.slice(0, -1).map((from, i) =>
+    (graph._edges || []).find(e => e.from === from && e.to === ids[i + 1])?.path).filter(Boolean)
+  if (hops.length) onReveal(graph, () => setTimeout(() => walk(hops, opts), 900))
+}
+
+function inspect(sel, { panel } = {}) {
+  const graph = document.querySelector(sel)
+  const out = panel && document.querySelector(panel)
+  const base = out?.textContent
+  const nodes = [...graph.querySelectorAll('.node')]
+  let pinned = null
+
+  const clear = () => {
+    graph.classList.remove('dim')
+    graph.querySelectorAll('.hot').forEach(n => n.classList.remove('hot'))
+    if (out) out.textContent = base
+  }
+  const show = node => {
+    clear()
+    graph.classList.add('dim')
+    node.classList.add('hot')
+    for (const e of graph._edges || []) {
+      if (e.from !== node.id && e.to !== node.id) continue
+      e.path.classList.add('hot')
+      document.getElementById(e.from === node.id ? e.to : e.from)?.classList.add('hot')
+    }
+    if (out && node.dataset.detail) out.textContent = node.dataset.detail
+  }
+
+  for (const n of nodes) {
+    n.tabIndex = 0
+    n.addEventListener('mouseenter', () => !pinned && show(n))
+    n.addEventListener('focus', () => show(n))
+    n.addEventListener('click', e => { e.stopPropagation(); pinned = pinned === n ? null : n; pinned ? show(n) : clear() })
+  }
+  graph.addEventListener('mouseleave', () => !pinned && clear())
+  document.addEventListener('click', () => { if (pinned) { pinned = null; clear() } })
+}
+
+// Writes a sibling file in the work theme: slate, no logo, no WTF favicon. The engine's own
+// <svg> layers are dropped from the clone because the copy rebuilds them when it loads.
+function exportForWork() {
+  const doc = document.documentElement.cloneNode(true)
+  doc.setAttribute('data-theme', 'work')
+  doc.querySelectorAll('.brand, #exportbtn, link.fav-wtf, .graph > svg').forEach(n => n.remove())
+  const url = URL.createObjectURL(new Blob(['<!doctype html>\n' + doc.outerHTML], { type: 'text/html' }))
+  const a = document.createElement('a')
+  a.href = url
+  a.download = (document.title || 'document').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-work.html'
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
+document.documentElement.classList.add('js')
+document.querySelectorAll('.sec').forEach(s => io.observe(s))
+document.querySelectorAll('.bars').forEach(b => onReveal(b, () => {
+  stagger(b.querySelectorAll('.track > i'), grow)
+  b.querySelectorAll('.count').forEach(c => count(c))
+}))
+window.hljs && hljs.highlightAll()
+// Placement runs before the queue, because edges() measures node rects as it draws.
+for (const n of document.querySelectorAll('.graph .node[data-col]')) {
+  n.style.gridColumn = n.dataset.col
+  if (n.dataset.row) n.style.gridRow = n.dataset.span ? `${n.dataset.row} / span ${n.dataset.span}` : n.dataset.row
+}
+for (const [f, a] of QUEUE) window[f](...a)
+addEventListener('load', () => LAYOUTS.forEach(fn => fn()))
+</script>
+</body>
+</html>

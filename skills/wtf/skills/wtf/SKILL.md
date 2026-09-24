@@ -13,6 +13,8 @@ Two branches:
 - **Arguments given** (`/wtf explain X`) — X is the subject.
 - **No arguments** — the subject is your own last reply. Re-answer it at whiteboard altitude. Same content, redrawn. Never apologise for the first version, never reference it.
 
+For a page a colleague can open rather than an answer in the terminal, `/wtf-html` builds one.
+
 ## Steps
 
 1. **Find the one sentence.** What does the reader walk away knowing? Everything else ranks against it.
