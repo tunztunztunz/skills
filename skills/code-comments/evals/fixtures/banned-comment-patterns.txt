@@ -1,0 +1,11 @@
+# Case-insensitive regular expressions for source-comment text.
+(?<!\w)#\d+\b
+\b[A-Z][A-Z0-9]+-\d+\b
+\b(?:issue|ticket)\s*#?\s*\d+\b
+\bload[\s_-]*bearing\b
+\bearns?\s+(?:its|their)\s+place\b
+\bthis\s+comment\b
+\b(?:this\s+code|the\s+code\s+below|the\s+following\s+code)\b
+\b(?:simply|just|robust|clean|elegant)\b
+\bbest\s+practice\b
+\b(?:ensures?\s+correctness|handles?\s+edge\s+cases|prevents?\s+errors?|improves?\s+performance)\b
