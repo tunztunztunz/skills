@@ -22,6 +22,7 @@ claude plugin install code-comments@tunztunztunz
 claude plugin install dry-prose@tunztunztunz
 claude plugin install wtf@tunztunztunz
 claude plugin install grilled-cheese@tunztunztunz
+claude plugin install interrupt@tunztunztunz
 ```
 
 Restart Claude Code afterwards, because it loads plugins at startup.
@@ -46,7 +47,7 @@ go install github.com/tunztunztunz/grilled-cheese@latest
 go install github.com/tunztunztunz/interrupt/cmd/interrupt@latest
 ```
 
-`interrupt` installs itself: its first run writes the skill to `~/.claude/skills/interrupt` and offers to install the plugin as `interrupt@interrupt`. Run `claude plugin install interrupt@tunztunztunz` only if you skip that step, so the plugin isn't installed twice. The plugin needs `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1`.
+The `interrupt` plugin needs `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1`.
 
 ### Other requirements
 
