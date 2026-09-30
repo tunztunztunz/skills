@@ -1,53 +1,69 @@
 # skills
 
-Claude Code skills, vendored from [Classward/agent-skills](https://github.com/Classward/agent-skills). Each copy is verbatim, so re-extracting one stays clean.
+My Claude Code skills, installable from one marketplace. All but `grilled-cheese` live in this repo; it ships a Go server, so it lives in its own repo and is listed here.
 
-| Skill | Vendored from | What it does |
+| Skill | Lives in | What it does |
 |---|---|---|
-| [`code-comments`](skills/code-comments) | `code-comments-constraint-test`, a local branch | Holds a comment to one job: state a constraint the code cannot carry. Hooks inject the rules at session start, so they apply without being invoked. Carries its own eval harness. |
-| [`dry-prose`](skills/dry-prose) | `add-dry-prose-skill` | Writes short, plain prose for READMEs, docs, runbooks, and PR descriptions. Writes new text, or sweeps a draft you already have. Carries its own eval harness. |
-| [`wtf`](skills/wtf) | `main` | Answers at whiteboard altitude: a drawing, then a short caption. Ships 3 commands, `/wtf`, `/wtf-html`, and `/wtf-brand`. |
+| [`code-comments`](skills/code-comments) | here | Holds a comment to one job: state a constraint the code cannot carry. Hooks inject the rules at session start, so they apply without being invoked. Carries its own eval harness. |
+| [`dry-prose`](skills/dry-prose) | here | Writes short, plain prose for READMEs, docs, runbooks, and PR descriptions. Writes new text, or sweeps a draft you already have. Carries its own eval harness. |
+| [`wtf`](skills/wtf) | here | Answers at whiteboard altitude: a drawing, then a short caption. Ships 3 commands, `/wtf`, `/wtf-html`, and `/wtf-brand`. |
+| [`grilled-cheese`](https://github.com/tunztunztunz/grilled-cheese) | its own repo | Runs a grilling session in a browser: clickable options, per-question threads, a live decision log, and vim keys. |
 
-Neither branch has merged. `add-dry-prose-skill` is on the upstream remote, so `dry-prose` can change before it lands on `main`. `code-comments-constraint-test` is not on the remote, so the copy here is the only published one.
-
-Every skill sets `disable-model-invocation: true`, so Claude never reaches for one on its own. Type the command to run it.
+`code-comments`, `dry-prose`, and `wtf` are copied verbatim from [Classward/agent-skills](https://github.com/Classward/agent-skills), so each skill's own README describes that repo's paths.
 
 ## Install
 
-Clone first:
+Add the marketplace, then install the plugins you want:
 
 ```bash
-git clone git@github.com:tunztunztunz/skills.git
-cd skills
+claude plugin marketplace add tunztunztunz/skills
+claude plugin install code-comments@tunztunztunz
+claude plugin install dry-prose@tunztunztunz
+claude plugin install wtf@tunztunztunz
+claude plugin install grilled-cheese@tunztunztunz
 ```
 
-`code-comments` needs the plugin route, not a symlink. Its hooks resolve `${CLAUDE_PLUGIN_ROOT}`, which only a plugin install sets, so a symlinked copy gives you the skill without the session-start injection. [`skills/code-comments/README.md`](skills/code-comments/README.md) covers it.
+Restart Claude Code afterwards, because it loads plugins at startup.
 
-`dry-prose` installs as a single symlink:
+To work on the skills in a clone, add the clone instead: `claude plugin marketplace add ~/path/to/skills`. The skills in this repo then install from your working tree. `grilled-cheese` still installs from GitHub, so it picks up only what's pushed.
+
+After editing a skill, refresh the installed copy and restart:
 
 ```bash
-ln -s "$PWD/skills/dry-prose" ~/.claude/skills/dry-prose
+claude plugin marketplace update tunztunztunz
+claude plugin update <name>@tunztunztunz
 ```
 
-`wtf` holds 3 skills, so symlink each:
+If an update misses an edit, raise `version` in that plugin's `.claude-plugin/plugin.json`.
+
+### Skills with a binary
+
+`grilled-cheese` drives a Go server on `PATH`, which the plugin does not install. Without it, the skill has nothing to run:
 
 ```bash
-for s in wtf wtf-brand wtf-html; do
-  ln -s "$PWD/skills/wtf/skills/$s" ~/.claude/skills/"$s"
-done
+go install github.com/tunztunztunz/grilled-cheese@latest
 ```
 
-Restart Claude Code afterwards, because it finds skills at startup.
+### Other requirements
 
-`/wtf-html` and `/wtf-brand` need a browser, `cwebp`, `sips`, and Pillow, plus `rsvg-convert` for SVG logos. [`skills/wtf/README.md`](skills/wtf/README.md) lists them and covers the marketplace route for Claude Code, Codex, and opencode. Each skill's README is upstream's file, so its links and paths describe the upstream repo.
+`/wtf-html` and `/wtf-brand` need a browser, `cwebp`, `sips`, and Pillow, plus `rsvg-convert` for SVG logos. [`skills/wtf/README.md`](skills/wtf/README.md) lists them.
 
-## Update a vendored skill
+## Elsewhere
 
-Refresh it from a clone of the upstream repo, using the ref in the table:
+[`interrupt`](https://github.com/tunztunztunz/interrupt) draws a lateral-thinking card and reads the problem through it. It isn't in the marketplace, because its CLI installs the skill itself on first run:
+
+```bash
+go install github.com/tunztunztunz/interrupt/cmd/interrupt@latest
+interrupt
+```
+
+## Update a copied skill
+
+Refresh it from a clone of Classward/agent-skills:
 
 ```bash
 git rm -r skills/dry-prose
 git -C <path-to-agent-skills> archive origin/add-dry-prose-skill skills/dry-prose | tar -x -C .
 ```
 
-Drop the `origin/` prefix for a local branch, so `code-comments` refreshes from `code-comments-constraint-test`.
+The refs: `code-comments` from the local branch `code-comments-constraint-test` (drop the `origin/` prefix), `dry-prose` from `add-dry-prose-skill`, and `wtf` from `main`.
