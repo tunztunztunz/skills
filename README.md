@@ -1,6 +1,6 @@
 # skills
 
-My Claude Code skills, installable from one marketplace. Some live in this repo; the ones that ship a Go binary live in their own repos and are listed here.
+My Claude Code skills, installable from one marketplace. All but `grilled-cheese` live in this repo; it ships a Go server, so it lives in its own repo and is listed here.
 
 | Skill | Lives in | What it does |
 |---|---|---|
@@ -8,9 +8,9 @@ My Claude Code skills, installable from one marketplace. Some live in this repo;
 | [`dry-prose`](skills/dry-prose) | here | Writes short, plain prose for READMEs, docs, runbooks, and PR descriptions. Writes new text, or sweeps a draft you already have. Carries its own eval harness. |
 | [`wtf`](skills/wtf) | here | Answers at whiteboard altitude: a drawing, then a short caption. Ships 3 commands, `/wtf`, `/wtf-html`, and `/wtf-brand`. |
 | [`grilled-cheese`](https://github.com/tunztunztunz/grilled-cheese) | its own repo | Runs a grilling session in a browser: clickable options, per-question threads, a live decision log, and vim keys. |
-| [`interrupt`](https://github.com/tunztunztunz/interrupt) | its own repo | Draws a lateral-thinking card above the prompt and reads the problem through it. |
+| [`interrupt`](skills/interrupt) | here | Draws a lateral-thinking card with the [`interrupt`](https://github.com/tunztunztunz/interrupt) CLI and reads the problem through it. |
 
-`code-comments`, `dry-prose`, and `wtf` are copied verbatim from [Classward/agent-skills](https://github.com/Classward/agent-skills), so each skill's own README describes that repo's paths.
+`code-comments`, `dry-prose`, and `wtf` are copied verbatim from [Classward/agent-skills](https://github.com/Classward/agent-skills), so each skill's own README describes that repo's paths. `interrupt` is copied from the `SKILL.md` in the interrupt repo.
 
 ## Install
 
@@ -27,7 +27,7 @@ claude plugin install interrupt@tunztunztunz
 
 Restart Claude Code afterwards, because it loads plugins at startup.
 
-To work on the skills in a clone, add the clone instead: `claude plugin marketplace add ~/path/to/skills`. The skills in this repo then install from your working tree. `grilled-cheese` and `interrupt` still install from GitHub, so they pick up only what's pushed.
+To work on the skills in a clone, add the clone instead: `claude plugin marketplace add ~/path/to/skills`. The skills in this repo then install from your working tree. `grilled-cheese` still installs from GitHub, so it picks up only what's pushed.
 
 After editing a skill, refresh the installed copy and restart:
 
@@ -40,14 +40,14 @@ If an update misses an edit, raise `version` in that plugin's `.claude-plugin/pl
 
 ### Skills with a binary
 
-`grilled-cheese` and `interrupt` drive a Go binary on `PATH`, which the plugin does not install:
+`grilled-cheese` and `interrupt` drive a Go binary on `PATH`, which the plugin does not install. Without it, the skill has nothing to run:
 
 ```bash
 go install github.com/tunztunztunz/grilled-cheese@latest
 go install github.com/tunztunztunz/interrupt/cmd/interrupt@latest
 ```
 
-The `interrupt` plugin needs `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1`.
+The first `interrupt` run asks which agents get the skill. Untick Claude Code, since the plugin already carries it.
 
 ### Other requirements
 
@@ -63,3 +63,9 @@ git -C <path-to-agent-skills> archive origin/add-dry-prose-skill skills/dry-pros
 ```
 
 The refs: `code-comments` from the local branch `code-comments-constraint-test` (drop the `origin/` prefix), `dry-prose` from `add-dry-prose-skill`, and `wtf` from `main`.
+
+Refresh `interrupt` from a clone of the interrupt repo:
+
+```bash
+cp <path-to-interrupt>/SKILL.md skills/interrupt/SKILL.md
+```

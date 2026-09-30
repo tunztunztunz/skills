@@ -36,12 +36,8 @@
     },
     {
       "name": "interrupt",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/tunztunztunz/interrupt.git",
-        "path": "plugin"
-      },
-      "description": "Draws an Interrupt card in the band above the prompt and hands it to the model to read the problem through.",
+      "source": "./skills/interrupt",
+      "description": "Draws a random lateral-thinking card with the interrupt CLI and reads the problem at hand through it.",
       "category": "productivity"
     }
   ]
