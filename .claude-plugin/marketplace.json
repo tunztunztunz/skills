@@ -1,0 +1,48 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "tunztunztunz",
+  "description": "Dustin Simensen's Claude Code skills.",
+  "owner": {
+    "name": "Dustin Simensen"
+  },
+  "plugins": [
+    {
+      "name": "code-comments",
+      "source": "./skills/code-comments",
+      "description": "Comment rules that hold without being invoked: the load-bearing test, injected at session and subagent start.",
+      "category": "engineering"
+    },
+    {
+      "name": "dry-prose",
+      "source": "./skills/dry-prose",
+      "description": "Short, flat, plain-English prose for anything read while working. Writes new text, or sweeps an existing draft.",
+      "category": "writing"
+    },
+    {
+      "name": "wtf",
+      "source": "./skills/wtf",
+      "description": "Answers at whiteboard altitude — the short plain-English version, drawn rather than described. Ships /wtf, /wtf-html and /wtf-brand.",
+      "category": "engineering"
+    },
+    {
+      "name": "grilled-cheese",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/tunztunztunz/grilled-cheese.git",
+        "path": "plugin"
+      },
+      "description": "Run a grilling session in a browser: clickable options, per-question threads, a live decision log, and vim keys. Ships a Go server the agent drives over ask/wait/reply.",
+      "category": "workflow"
+    },
+    {
+      "name": "interrupt",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/tunztunztunz/interrupt.git",
+        "path": "plugin"
+      },
+      "description": "Draws an Interrupt card in the band above the prompt and hands it to the model to read the problem through.",
+      "category": "productivity"
+    }
+  ]
+}
